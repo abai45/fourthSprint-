@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Sprint Task</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navMenu">
+            <div class="logo">
+                Twitter
+            </div>
+            <div class="navBar">
+                <a href="#" class="navLink">Tweets</a>
+                <a href="./index.html" class="navLink">Register</a>
+                <a href="./pages/login.html" class="navLink">Login</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="registerBlock">
+                <span class="registerText">
+                    Email:
+                </span>
+                <input type="email" class="inputs" id="mail">
+                <span class="registerText">
+                    Password:
+                </span>
+                <input type="password" class="inputs" id="pass">
+                <span class="registerText">
+                    Full Name:
+                </span>
+                <input type="text" class="inputs" id="fullName">
+                <span class="registerText">
+                    Country:
+                </span>
+                <select id="country">
+                    <option value="Kazakhstan">Kazakhstan</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Ukraine">Ukraine</option>
+                </select>
+                <span class="registerText">
+                    Birthdate:
+                </span>
+                <input type="date" class="inputs" placeholder="dd/mm/yy" id="date">
+                <div class="button" onclick="regFunc()">
+                    Register
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./js.js"></script>
+</body>
+</html>
