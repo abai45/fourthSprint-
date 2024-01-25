@@ -1,62 +1,35 @@
-let userInfo = {};
-function regFunc() {
-    userInfo.mail = document.querySelector('#mail').value;
-    userInfo.pass = document.querySelector('#pass').value;
-    userInfo.fullName = document.querySelector('#fullName').value;
-    userInfo.country = document.querySelector('#country').value;
-    userInfo.date = document.querySelector('#date').value;
+// js.js
 
-    let mainInfo = [
-        {mail: 'abai.45.abai@gmail.com', pass: 'qq1234', fullName: 'Abai Aman', country: 'Kazakhstan', date: '2002-01-12'},
-        {mail: 'alexanderlaimon@gmail.com', pass: 'asdf1234', fullName: 'Alexander', country: 'Russia', date: '2002-01-12'},
-        {mail: 'rusline@mail.com', pass: 'dimash123', fullName: 'Ruslan Senky', country: 'Belorussia', date: '2002-01-12'},
-    ]
+function saveToDraft() {
+    // Получить значения ввода
+    var name = document.getElementById("name").value;
+    var surname = document.getElementById("surname").value;
+    var country = document.querySelector("select").value;
+    var phone = document.getElementById("phone").value;
 
-    mainInfo.push(userInfo);
-    console.log(mainInfo);
+    // Создать объект для хранения данных
+    var draftData = {
+        name: name,
+        surname: surname,
+        country: country,
+        phone: phone
+    };
 
-    localStorage.mainStorage = JSON.stringify(mainInfo);
-
-    alert('Вы зарегистрировались!');
-    window.location.href = './pages/login.html';
+    // Преобразовать объект в строку JSON и сохранить его в localStorage
+    localStorage.setItem("draftData", JSON.stringify(draftData));
 }
 
-function loginFunc() {
-    let email = document.querySelector('#mail').value;
-    let password = document.querySelector('#pass').value;
-    let text = document.querySelector('.text');
+function loadDraftData() {
+    // Загрузить данные из localStorage
+    var savedDraft = localStorage.getItem("draftData");
 
-    let usersDataJSON = localStorage.getItem('mainStorage');
-    let usersDataObj = JSON.parse(usersDataJSON);
-
-    let currentUser;
-
-    for (let i = 0; i < usersDataObj.length; i++) {
-        if (usersDataObj[i].mail == email && usersDataObj[i].pass == password) {
-            alert('Вы авторизовались');
-            currentUser = usersDataObj[i];
-            break;
-        } else {
-            text.innerHTML = `Вы ввели неправильные данные!`;
-        }
-    }
-
-    if (currentUser) {
-        const queryParams = `userFullName=${encodeURIComponent(currentUser.fullName)}&userEmail=${encodeURIComponent(currentUser.mail)}&userCountry=${encodeURIComponent(currentUser.country)}&userBirth=${encodeURIComponent(currentUser.date)}`;
-        window.location.href = `./profile.html?${queryParams}`;
+    // Проверить, есть ли сохраненные данные
+    if (savedDraft) {
+        // Распарсить JSON-строку и установить значения в форме
+        var draftData = JSON.parse(savedDraft);
+        document.getElementById("name").value = draftData.name;
+        document.getElementById("surname").value = draftData.surname;
+        document.querySelector("select").value = draftData.country;
+        document.getElementById("phone").value = draftData.phone;
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const userFullName = urlParams.get('userFullName');
-    document.querySelector('.userFullName').innerHTML = userFullName;
-    document.querySelector('#userName').innerHTML = userFullName;
-    document.querySelector('.welcome').innerHTML = `Welcome ${userFullName}!`;
-    const userEmail = urlParams.get('userEmail');
-    document.querySelector('.userEmail').innerHTML = userEmail;
-    const userCountry = urlParams.get('userCountry');
-    document.querySelector('.userCountry').innerHTML = userCountry;
-    const userBirth = urlParams.get('userBirth');
-    document.querySelector('.userBirth').innerHTML = userBirth;
-});
