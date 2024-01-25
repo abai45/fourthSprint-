@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fourth Sprint Task</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navMenu">
+            <div class="logo">
+                <a href="./twitter.html" class="navLink">Twitter</a>
+            </div>
+            <div class="navBar">
+                <a href="./twitter.html" class="navLink">Tweets</a>
+                <a href="../index.html" class="navLink">Register</a>
+                <a href="./login.html" class="navLink">Login</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="twitterPage">
+                <h1>Welcome to twitter</h1>
+                <div class="buttons">
+                    <div class="reg" onclick="regLink()">
+                        Register
+                    </div>
+                    <div class="signIn" onclick="logLink()">
+                        Login
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../js.js"></script>
+    <script>
+        function regLink() {
+            window.location.href = '../index.html'
+        }
+        function logLink() {
+            window.location.href = './login.html'
+        }
+    </script>
+</body>
+</html>
