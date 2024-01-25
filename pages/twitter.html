@@ -19,25 +19,29 @@
             </div>
         </div>
         <div class="content">
-            <div class="registerBlock">
-                <span class="registerText">
-                    Email:
-                </span>
-                <input type="email" class="inputs" id="mail">
-                <span class="registerText">
-                    Password:
-                </span>
-                <input type="password" class="inputs" id="pass">
-                <div class="button" onclick="loginFunc()">
-                    Login
+            <div class="twitterPage">
+                <h1>Welcome to twitter</h1>
+                <div class="buttons">
+                    <div class="reg" onclick="regLink()">
+                        Register
+                    </div>
+                    <div class="signIn" onclick="logLink()">
+                        Login
+                    </div>
                 </div>
-                <span class="text"></span>
             </div>
-
         </div>
     </div>
 
 
     <script src="../js.js"></script>
+    <script>
+        function regLink() {
+            window.location.href = '../index.html'
+        }
+        function logLink() {
+            window.location.href = './login.html'
+        }
+    </script>
 </body>
 </html>

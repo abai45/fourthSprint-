@@ -3,47 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fourth Sprint Task</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <div class="container">
-        <div class="bgCard">
-            <div class="block">
-                <span class="text">
-                    Name:
-                </span>    
-                <input type="text" id="name" placeholder="Input ur name...">
+        <div class="navMenu">
+            <div class="logo">
+                <a href="./pages/twitter.html" class="navLink">Twitter</a>
             </div>
-            <div class="block">
-                <span class="text">
-                    Surname:
-                </span>
-                <input type="text" id="surname" placeholder="Input ur surname...">
-            </div>
-            <div class="block">
-                <span class="text">
-                    Country:
-                </span>
-                <select>
-                    <option value="1">Kazakhstan</option>
-                    <option value="2">Russia</option>
-                    <option value="3">Kyrgyzstan</option>
-                    <option value="4">Uzbekistan</option>
-                </select>
-            </div>
-            <div class="block">
-                <span class="text">
-                    Phone number:
-                </span>
-                <input type="text" id="phone" placeholder="Input ur number...">
-            </div>
-            <div class="buttons">
-                <div class="reg">REGISTER</div>
-                <div class="save" onclick="saveToDraft()">SAVE TO DRAFT</div>
+            <div class="navBar">
+                <a href="./pages/twitter.html" class="navLink">Tweets</a>
+                <a href="./index.html" class="navLink">Register</a>
+                <a href="./pages/login.html" class="navLink">Login</a>
             </div>
         </div>
+        <div class="content">
+            <div class="registerBlock">
+                <span class="registerText">
+                    Email:
+                </span>
+                <input type="email" class="inputs" id="mail">
+                <span class="registerText">
+                    Password:
+                </span>
+                <input type="password" class="inputs" id="pass">
+                <span class="registerText">
+                    Full Name:
+                </span>
+                <input type="text" class="inputs" id="fullName">
+                <span class="registerText">
+                    Country:
+                </span>
+                <select id="country">
+                    <option value="Kazakhstan">Kazakhstan</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Ukraine">Ukraine</option>
+                </select>
+                <span class="registerText">
+                    Birthdate:
+                </span>
+                <input type="date" class="inputs" placeholder="dd/mm/yy" id="date">
+                <div class="button" onclick="regFunc()">
+                    Register
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
     <script src="./js.js"></script>
 </body>
 </html>
